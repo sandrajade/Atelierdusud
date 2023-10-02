@@ -5,7 +5,7 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
+                    <a href="{{ route('atelierdusud.accueil') }}">
                         <x-application-mark class="block h-9 w-auto" />
                     </a>
 
@@ -13,12 +13,12 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                    <x-nav-link href="{{ route('atelierdusud.accueil') }}" :active="request()->routeIs('atelierdusud.accueil')">
+                        {{ __('Accueil') }}
                     </x-nav-link>
-                    <x-nav-link href="{{ route('artists') }}" :active="request()->routeIs('artist')"> Artistes
+                    <x-nav-link href="{{ route('atelierdusud.works.index') }}" :active="request()->routeIs('atelierdusud.works.index')"> Artistes
                     </x-nav-link>
-                    <x-nav-link href="{{ route('events') }}" :active="request()->routeIs('event')"> Evenements
+                    <x-nav-link href="{{ route('atelierdusud.artists.index') }}" :active="request()->routeIs('atelierdusud.artists.index')"> Archives
 
                     </x-nav-link>
                 </div>

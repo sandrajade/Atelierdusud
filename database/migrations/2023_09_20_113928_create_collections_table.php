@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('collections', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->text('description');
+            $table->tinyInteger('status')->default(0);
+            $table->foreignId('artist_id')->nullable();
+            $table->foreignId('category_id')->nullable();
+            $table->foreignId('work_id')->nullable();
             $table->timestamps();
         });
     }

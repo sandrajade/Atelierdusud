@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('artists', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->text('description');
+            $table->foreignId('collection_id')->nullable();
+            $table->foreignId('work_id')->nullable();
+            $table->tinyInteger('status')->default(0)->nullable();
+            $table->string('url')->default('https://unsplash.com/fr/s/photos/artist-portrait')->nullable();
             $table->timestamps();
+
         });
     }
 

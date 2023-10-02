@@ -92,10 +92,10 @@
                     </svg>
                 </a>
                 <div>
-                    <a href="{{ route('artists') }}">Artists</a>
+                    <a href="{{ route('atelierdusud.artists.index') }}">Artistes</a>
                 </div>
                 <div>
-                    <a href="{{ route('events') }}">Events</a>
+                    <a href="{{ route('categories.index') }}">Categories</a>
                 </div>
 
                 <div class="font-sans text-gray-900 antialiased">

@@ -1,18 +1,21 @@
 <?php
 
 namespace App\Models;
-
+use App\Models\work;
+use App\Models\Artist;
+use App\Models\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Model;
 
-class Work extends Model
+class WorkController extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'type', 'degree', 'status'];
+    protected $fillable = ['title', 'artist_id', 'description', 'status', 'url'];
 
-    public function step(): BelongsTo
+    public function collection(): BelongsTo
     {
-        return $this->belongsTo(Step::class);
+        return $this->belongsTo(Collection::class);
     }
 }

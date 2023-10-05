@@ -11,8 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('category_artist', function (Blueprint $table) {
-            $table->foreignId('category_id');
+        Schema::create('artist_collection', function (Blueprint $table) {
+            $table->foreignId('collection_id');
             $table->foreignId('artist_id');
         });
     }
@@ -22,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('category_artist');
+        Schema::dropIfExists('artist_collection');
     }
 };

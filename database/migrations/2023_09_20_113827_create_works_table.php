@@ -17,8 +17,6 @@ return new class extends Migration
             $table->text('description');
             $table->tinyInteger('status')->default(0);
             $table->foreignId('collection_id')->nullable;
-            $table->foreignId('category_id')->nullable;
-            $table->foreignId('artist_id')->nullable;
             $table->string('url')->default('https://unsplash.com/fr/s/photos/creation-artistique')->nullable();
             $table->timestamps();
         });

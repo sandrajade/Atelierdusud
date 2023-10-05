@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\work;
-use App\Models\Artist;
-use App\Models\Collection;
 use Illuminate\Http\Request;
 
 class WorkController extends Controller
@@ -13,8 +11,10 @@ class WorkController extends Controller
     public function index()
 
     {
-     
-        return view('works.index');
+        //La methode all recupère toute les données de ma table Work de la base de donnée
+        $works = Work::all();
+        //renvoie la vue avec toute les données de ma table Work
+        return view('works.index', 'works');
     }
 
     public function create()
@@ -31,9 +31,7 @@ class WorkController extends Controller
             'url' => 'required'
         ]);
 
-        if ($request->status == 'on') {
-            $validated['status']= 1;
-        }
+        $work->save();
 
         Work::create($validated);
 
@@ -52,7 +50,7 @@ class WorkController extends Controller
 
     public function update(Request $request, Work $work)
     {
-        $work->artist_id = $request->artist_id;
+        $work->category_id = $request->category_id;
         $work->title = $request->title;
         $work->description = $request->description;
         $work->url = $request->url;

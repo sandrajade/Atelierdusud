@@ -10,12 +10,11 @@ class Collection extends Model
 {
     use HasFactory;
 
-    protected $fillable =['title', 'artist_id', 'description', 'work_id', 'status'];
+    protected $fillable =['title', 'description', 'status'];
 
     public function work(): BelongsToMany
     {
-        return $this->belongsToMany
-        (Work::class);
+        return $this->belongsToMany(Work::class);
     }
 
     public function artist(): BelongsToMany

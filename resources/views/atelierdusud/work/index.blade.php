@@ -6,7 +6,7 @@
             Oeuvres
         </h2>
         <a href="{{ route('atelierdusud.works.create') }}" class="border border-green-600 text-green-600 rounded-md py-2 px-3">
-            Ajouter une Oeuvre
+            Ajouter un artist
         </a>
     </x-slot>
 

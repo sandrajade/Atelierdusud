@@ -5,60 +5,87 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Collection;
 
-class CategoryController extends Controller
+class CollectionController extends Controller
 {
     public function index()
 
     {
          // la methode all récupère toute les données de la table collection de la base de données et les stocke dans une variable $collection
-        $collections = Category::all();
+        $collections = Collection::all();
         //renvoie une vue avec toute les données de la table collection
-        return view('collection.index', compact('collections'));
+        return view('atelierdusud.collections.index', compact('collections'));
     }
 
     public function create()
     {
-        return view('collection.create');
+           //retourne une vue nommée collections.create, donc un formulaire
+        return view('atelierdusud.collections.create');
     }
 
     public function store(Request $request)
 
+     //la methode validate Verifie les données que l'utilisateur à envoyé à partir d'un formulaire
+        //ma variable validated retourne un tableau
+
     {
+        $validated = $request->validate([
+            'url ' => 'required',
+            'title' => 'required|max:255',
+            'description' => 'required',
+        ]);
+             // crée une représentation d'un enregistrement dans une table de donnée, remplissage de champ
+        //je crée un nouvel objet de type collection
+
         $collection = new collection;
-        $collection->name = $request->name;
-        $collection->description = $request->description;
-
-       
-        $category->save();
-
-        return redirect()->route('collections.index');
+      //on assigne à chaque colonne de ma table artist les données de mon validate qui est un tableau
+        // Attention comme c'est un tableau  que l'on récupère donc on met entre crochet ['url..']
+        $collection->url = $validated['url'];
+        $collection->name = $validated['title'];
+        $collection->description = $validated['description'];
+    //sauvegarde dans la base de donnée
+        $collection->save();
+ //redirige l'utilisateur vers la page d'index des collections
+        return redirect('collections.index');
     }
 
-    public function show(string $id)
+    public function show(Collection $collection)
     {
-
+    //renvoie une vue de la'collection demandé
+    return view('atelierdusud.collections.show', compact('artist'));
     }
-public function edit(Category $category)
+public function edit(Collection $collection)
 {
-    return view ('category.edit', compact('category'));
+    return view ('atelierdusud.collections.edit', compact('collection'));
 }
 
-public function update (Request $request, Category $category)
+public function update (Request $request, Collection $collection)
 {
-    $category->name = $request->name;
+        //Verifie les données que l'utilisateur à envoyé à partir d'un formulaire
+
+        $validated = $request->validate([
+            'url ' => 'required',
+            'title' => 'required|max:255',
+            'description' => 'required',
+        ]);
+
+         // Mette à jour les propriétés de l'artiste avec les données soumises
+
+        $collection->url = $validated['url'];
+        $collection->name = $validated['title'];
+        $collection->description = $validated['description'];
 
 
-    $category->update();
-
-    return redirect()->route('category.index');
-
+     //sauvegarde dans la base de donnée
+        $collection->save();
+     //redirige l'utilisateur vers la page d'index des collections
+         return redirect('collections.index');
 }
 
-public function destroy(Category $category)
+public function destroy(Collection $collection)
 {
-    $category->delete();
+    $collection->delete();
 
-    return redirect()->route('category.index');
+    return redirect('collections.index');
 }
 
 }

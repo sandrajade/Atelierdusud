@@ -52,7 +52,7 @@ class ArtistController extends Controller
 
 
         //redirige l'utilisateur vers la page d'index des artistes
-        return redirect('atelierdusud.artists.index');
+        return redirect('artists.index');
     }
 
     public function show(Artist $artist)
@@ -98,6 +98,6 @@ class ArtistController extends Controller
     public function destroy(Artist $artist)
     {
         $artist->delete();
-        return redirect('atelierdusud.artists.index');
+        return redirect('artists.index');
     }
 }

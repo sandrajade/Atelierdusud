@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->tinyInteger('status')->default(0);
-            $table->string('url')->default('https://unsplash.com/fr/s/photos/artist-portrait')->nullable();
+            $table->string('url')->default('https://source.unsplash.com/random/200x500/?art')->nullable();
             $table->timestamps();
         });
     }

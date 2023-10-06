@@ -21,9 +21,12 @@ use App\Http\Controllers\WorkController;
 */
 
 Route::get('/', function () {
-    return view('atelierdusud.accueil');
-});
+    return view('welcome');
+})->name('welcome');
 
+Route::get('/artistes', function () {
+    return view('artists');
+})->name('artists');
 
 Route::middleware([
     'auth:sanctum',

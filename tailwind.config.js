@@ -14,10 +14,12 @@ export default {
     theme: {
         extend: {
             fontFamily: {
-                sans: [],
+                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
+                amita: ['Amita'],
+                amaranth: ['Amaranth'],
             },
         },
     },
 
-    plugins: [],
+    plugins: [forms, typography],
 };

@@ -22,7 +22,6 @@
             </li>
             @endforeach
 
-            <!-- More people... -->
           </ul>
         </div>
       </div>

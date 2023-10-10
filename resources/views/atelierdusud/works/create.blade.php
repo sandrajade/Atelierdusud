@@ -29,9 +29,9 @@
             </div>
             <div>
                 <label for="category">Categorie:</label>
-                <select name="category_id" id="category"></select>
+             <input type="checkbox" name="categories[]" value="{{ $category->id}}">
                 @foreach ($categories as $category)
-                <option value="{{ $category->id}}">{{ $category->title}}</option>
+                <label>{{ $category->name }}</label>
                 @endforeach
             </div>
             <div>

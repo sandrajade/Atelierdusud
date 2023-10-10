@@ -1,8 +1,8 @@
 <x-app-layout>
-    <div>
+    <slot>
         <h2>Artistes</h2>
         <a href="{{ route('artists.index') }}">Retour aux artistes</a>
-    </div>
+    </slot>
 
     <div>
         <div>

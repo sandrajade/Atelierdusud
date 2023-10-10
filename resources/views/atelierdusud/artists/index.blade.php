@@ -2,14 +2,14 @@
 
 <x-app-layout>
 
-    <div name="header">
+    <slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Ajouter un artiste
         </h2>
         <a href="{{ route('artists.index') }}" class="border border-bleu_clair text-bleu_fonce rounded-md py-2 px-3">
             Retour aux artistes
         </a>
-    </div>
+    </slot>
     {{-- je crée mon tableau qui affiche une liste d'artistes, avec chaque artiste représenté par une ligne du tableau. --}}
     <div>
         <table>

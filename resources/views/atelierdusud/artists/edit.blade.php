@@ -2,10 +2,10 @@
 {{-- C'est un composant Blade qui inclut le layout principal de l'application. Le layout principal contient généralement des éléments qui sont communs à plusieurs pages --}}
 <x-guest-layout>
 
-    <div>name="header">
+    <slot>name="header">
         <h2>Editer un artiste</h2>
         <a href="{{ route('artists.index') }}">Retour aux artistes</a>
-    </div>
+    </slot>
 
     <div>
         {{-- C'est le formulaire qui permet de modifier un artiste existant. L'attribut action du formulaire est défini sur la route qui gère la mise à jour des artistes  --}}

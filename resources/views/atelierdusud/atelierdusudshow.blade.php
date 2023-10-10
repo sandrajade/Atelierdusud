@@ -1,4 +1,4 @@
-{{-- En résumé, ce code génère une page HTML qui affiche les détails de chaque artiste. Chaque détail est affiché dans un bouton, avec différents boutons montrant le nom de l'artiste, la collection, la catégorie, et le travail. --}}
+{{-- En résumé, ce code génère une page HTML qui affiche les détails de chaque artiste. Chaque détail est affiché dans un bouton, avec différents boutons montrant le nom de l'artiste, la collection, la catégorie, et l'oeuvre --}}
 <x-guest-layout>
 
     <h1>Detail de l'artiste</h1>
@@ -7,14 +7,10 @@
 
 @foreach ($artists as $artist)
 <div>
-    {{-- À l'intérieur de la boucle, il y a quatre éléments <button>. Chaque bouton affiche une propriété différente de l'artiste actuel : le nom de l'artiste ($artist->artist), la collection ($artist->collection), la catégorie ($artist->category), et le travail ($artist->work). --}}
+    {{-- À l'intérieur de la boucle, il y a trois éléments <button>. Chaque bouton affiche une propriété différente de l'artiste actuel : le nom de l'artiste ($artist->artist), la catégorie ($artist->category), et l'oeuvre ($artist->work). --}}
     <button type="button">
 
         Artiste : {{$artist->artist}}
-    </button>
-    <button type="button">
-
-        Collection: {{$artist->collection}}
     </button>
 
     <button type="button">

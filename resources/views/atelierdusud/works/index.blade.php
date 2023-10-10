@@ -5,8 +5,8 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Oeuvres
         </h2>
-        <a href="{{ route('atelierdusud.works.create') }}" class="border border-green-600 text-green-600 rounded-md py-2 px-3">
-            Ajouter un artist
+        <a href="{{ route('works.create') }}" class="border border-green-600 text-green-600 rounded-md py-2 px-3">
+            Ajouter une oeuvre
         </a>
     </x-slot>
 
@@ -16,6 +16,7 @@
                 <tr>
                     <th scope="col" class="px-6 py-3">Title</th>
                     <th scope="col" class="px-6 py-3">Artist</th>
+                    <th scope="col" class="px-6 py-3">Categorie</th>
                     <th scope="col" class="px-6 py-3">Url</th>
                     <th scope="col" class="px-6 py-3">Description</th>
                 </tr>
@@ -33,11 +34,11 @@
                             @endforeach
                         </td>
                         <td class="flex items-center gap-2 px-6 py-3">
-                            <a href="{{ route('atelierdusud.works.show', $artist) }}"
+                            <a href="{{ route('works.show', $work) }}"
                                 class="rounded-md border border-gray-800 text-sm text-gray-800 py-2 px-3 hover:bg-gray-200 hover:text-gray-400 cursor-pointer transition-all duration-200">Voir</a>
-                            <a href="{{ route('atelierdusud.works.edit', $artist) }}"
+                            <a href="{{ route('works.edit', $work) }}"
                                 class="rounded-md border border-gray-800 text-sm text-gray-800 py-2 px-3 hover:bg-gray-200 hover:text-gray-400 cursor-pointer transition-all duration-200">Edit</a>
-                            <form action="{{ route('atelierdusud.works.store', $artist) }}" method="POST">
+                            <form action="{{ route('works.store', $work) }}" method="POST">
                                 @csrf
                                 @method('delete')
                                 <button type="submit"

@@ -1,9 +1,10 @@
 <?php
 
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ArtistController;
-use App\Http\Controllers\CollectionController;
+
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\WorkController;
 
@@ -47,14 +48,6 @@ Route::get('artists/{artist}/edit', [ArtistController::class, 'edit'])->name('ar
 Route::put('artists/{artist}', [ArtistController::class, 'update'])->name('artists.update');
 Route::delete('artists/{artist}', [ArtistController::class, 'destroy'])->name('artist.destroy');
 
-// Route::resource('collections', CollectionController::class);
-Route::get('collections', [CollectionController::class, 'index'])->name('collections.index');
-Route::get('collections/create', [CollectionController::class, 'create'])->name('collections.create');
-Route::post('collections', [CollectionController::class, 'store'])->name('collections.store');
-Route::get('collections/{collection}', [CollectionController::class, 'show'])->name('collections.show');
-Route::get('collections/{collection}/edit', [CollectionController::class, 'edit'])->name('collections.edit');
-Route::put('collections/{collection}', [CollectionController::class, 'update'])->name('collections.update');
-Route::delete('collections/{collection}', [CollectionController::class, 'destroy'])->name('collections.destroy');
 
 // Route::resource('categories', CategoryController::class);
 Route::get('categories', [CategoryController::class, 'index'])->name('categories.index');
@@ -74,6 +67,8 @@ Route::get('works/{work}', [WorkController::class, 'show'])->name('works.show');
 Route::get('works/{work}/edit', [WorkController::class, 'edit'])->name('works.edit');
 Route::put('/works/{work}', [WorkController::class, 'update'])->name('works.update');
 Route::delete('works/{work}', [WorkController::class, 'destroy'])->name('works.update');
+
+
 
 
 

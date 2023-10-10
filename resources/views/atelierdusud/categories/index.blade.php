@@ -2,14 +2,14 @@
 
 <x-app-layout>
 
-    <x-slot name="header">
+    <div name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
            Categories
         </h2>
         <a href="{{ route('categories.create') }}" class="border border-bleu_clair text-bleu_fonce rounded-md py-2 px-3">
             Ajouter une nouvelle catégorie
         </a>
-    </x-slot>
+    </div>
     {{-- je crée mon tableau qui affiche une liste de dcatégorie, avec chaque catégorie représenté par une ligne du tableau. --}}
     <div>
         <table>

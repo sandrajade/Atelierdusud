@@ -1,9 +1,9 @@
 <x-app-layout>
 
-    <x-slot name="header">
+    <div name="header">
         <h2>Ajouter une catégorie</h2>
         <a href='{{ route('categories.index') }}'>Retour aux catégories</a>
-    </x-slot>
+    </div>
 
     <div>
         <form action='{{ route('categories.store') }}' method="POST">
@@ -18,6 +18,7 @@
                 @error('name')
                     <div class="alert alert-danger">{{ $message }}</div>
                 @enderror
+                <button type="submit">Enregistrer</button>
             </div>
         </form>
     </div>

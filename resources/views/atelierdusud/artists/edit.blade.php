@@ -1,16 +1,16 @@
 {{-- ce code affiche un formulaire pour éditer un artiste existant. Lorsque vous remplissez le formulaire et que vous cliquez sur le bouton "Enregistrer", les données du formulaire sont envoyées au serveur et utilisées pour mettre à jour l'artiste dans la base de données --}}
 {{-- C'est un composant Blade qui inclut le layout principal de l'application. Le layout principal contient généralement des éléments qui sont communs à plusieurs pages --}}
 <x-guest-layout>
-    {{-- x-slot injecte le contenu de l'en-tête, qui comprend un titre et un lien pour retourner à la liste des artistes. --}}
-    <x-slot name="header">
+
+    <div>name="header">
         <h2>Editer un artiste</h2>
         <a href="{{ route('artists.index') }}">Retour aux artistes</a>
-    </x-slot>
+    </div>
 
     <div>
         {{-- C'est le formulaire qui permet de modifier un artiste existant. L'attribut action du formulaire est défini sur la route qui gère la mise à jour des artistes  --}}
         {{-- L'attribut method est défini sur POST, qui est la méthode HTTP utilisée pour envoyer les données du formulaire. --}}
-        <form action="{{ route('artists.update') }}" method="POST">
+        <form action="{{ route('artists.update') }}" method="PUT">
 
             {{-- @csrf et @method('PUT'): Ce sont des directives Blade qui génèrent un jeton CSRF et définissent la méthode HTTP du formulaire sur PUT. Ces directives sont nécessaires pour protéger contre les attaques de type cross-site request forgery et pour indiquer à Laravel que le formulaire doit envoyer une requête PUT. --}}
             @csrf

@@ -1,17 +1,17 @@
 {{-- Mon code présente un formulaire pour créer un artiste --}}
 {{-- x-app-layout contient des éléments qui sont communs a plusieurs pages --}}
 <x-app-layout>
-    {{-- le x-slot injecte du contenu de l'en-tête qui comprend un titre et un lien pour retourner à la liste des artistes --}}
-    <x-slot name="header">
-        <h2>Crée un artiste</h2>
+   
+    <div name="header">
+        <h2>Ajoute un artiste</h2>
         <a href="{{ route('artists.index') }}">
             Retour aux Artistes</a>
 
-    </x-slot>
+    </div>
 
     <div>
         {{-- C'est le formulaire que les utilisateurs rempliront pour créer un nouvel artiste. L'attribut action du formulaire est défini sur la route qui gère la création de nouveaux artistes --}}
-        <form action="{{ route('artists.store') }}" method="Post">
+        <form action="{{ route('artists.store') }}" method="POST">
             {{-- L'attribut method est défini sur POST, qui est la méthode HTTP utilisée pour envoyer les données du formulaire. --}}
             @csrf
             {{-- CSRF est utilisés pour la protectino contre les attaques de type cross-site request forgery --}}

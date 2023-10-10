@@ -12,9 +12,9 @@ class Artist extends Model
     use HasFactory;
     protected $fillable = ['name', 'url', 'description', 'status'];
 
-    public function collection(): BelongsToMany
+    public function work(): BelongsToMany
     {
-        return $this->belongsToMany(Collection::class);
+        return $this->belongsToMany(Work::class);
     }
 
 }

@@ -36,9 +36,7 @@
                         <a href="{{ route('artists.show', $artist) }}">{{ $artist->name }}</a>
                     </td>
                     <td class="px-6 py-3">
-
-                            {{ Str::limit($artist->description, 50) }}
-
+                        {{ Str::limit($artist->description, 50) }}
                         <a href="{{ route('artists.show', $artist) }}" class="ml-2 text-gray-600 text-sm hover:border-gray-300 border border-transparent py-0.5 px-2">→ lire la suite</a>
                     </td>
                     <td class="px-6 py-3">

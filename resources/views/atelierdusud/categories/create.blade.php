@@ -2,7 +2,7 @@
 
     <div name="header">
         <h2>Ajouter une catégorie</h2>
-        <a href='{{ route('categories.index') }}'>Retour aux catégories</a>
+        <a href='{{ route('categories.index') }}'> ⬅️Retour aux catégories</a>
     </div>
 
     <div>

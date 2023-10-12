@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div name="header">
+    <div name="header" class="inset-x-0 top-0 flex items-center justify-between px-6 py-2 lg:px-8 backdrop-blur-sm bg-white/30">
         <h2>Editer une catégorie</h2>
         <a href="{{ route('categories.index') }}"></a>
     </div>

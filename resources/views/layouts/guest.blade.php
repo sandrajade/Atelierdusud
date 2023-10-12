@@ -41,7 +41,9 @@
             <div class="hidden lg:flex lg:gap-x-12">
                 <a href="{{ route('welcome') }}" class="text-md font-amaranth tracking-widest leading-6 text-gray-900 border-b-2 hover:border-yellow-300 transition-all duration-300 {{ request()->routeIs('welcome') ? 'border-yellow-300' : 'border-transparent' }}">Accueil</a>
                 <a href="{{ route('artists') }}" class="text-md font-amaranth tracking-widest leading-6 text-gray-900 border-b-2 hover:border-yellow-300 transition-all duration-300 {{ request()->routeIs('artists') ? 'border-yellow-300' : 'border-transparent' }}">Artistes</a>
-                <a href="#" class="text-md font-amaranth tracking-widest leading-6 text-gray-900 border-b-2 border-transparent hover:border-yellow-300 transition-all duration-300">Archives</a>
+                <a href="{{ route('works')}}" class="text-md font-amaranth tracking-widest leading-6 text-gray-900 border-b-2
+                hover:border-yellow-300 transition-all duration-300 {{ request()->routeIs('works') ? 'border-yellow-300' :
+                'border-transparent' }}">Oeuvres</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
                 <a href="{{ route('login') }}" class="text-sm font-semibold leading-6 text-white">Se connecter <span aria-hidden="true">&rarr;</span></a>

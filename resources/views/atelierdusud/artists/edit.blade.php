@@ -10,9 +10,11 @@
     <div>
         {{-- C'est le formulaire qui permet de modifier un artiste existant. L'attribut action du formulaire est défini sur la route qui gère la mise à jour des artistes  --}}
         {{-- L'attribut method est défini sur POST, qui est la méthode HTTP utilisée pour envoyer les données du formulaire. --}}
+
+        {{-- @csrf et @method('PUT'): Ce sont des directives Blade qui génèrent un jeton CSRF et définissent la méthode HTTP du formulaire sur PUT. Ces directives sont nécessaires pour protéger contre les attaques de type cross-site request forgery et pour indiquer à Laravel que le formulaire doit envoyer une requête PUT. --}}
+
         <form action="{{ route('artists.update') }}" method="PUT">
 
-            {{-- @csrf et @method('PUT'): Ce sont des directives Blade qui génèrent un jeton CSRF et définissent la méthode HTTP du formulaire sur PUT. Ces directives sont nécessaires pour protéger contre les attaques de type cross-site request forgery et pour indiquer à Laravel que le formulaire doit envoyer une requête PUT. --}}
             @csrf
             @method('PUT')
             <div>

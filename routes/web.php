@@ -29,6 +29,10 @@ Route::get('/artistes', function () {
     return view('artists');
 })->name('artists');
 
+Route::get('/oeuvres', function () {
+    return view('works');
+})->name('works');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

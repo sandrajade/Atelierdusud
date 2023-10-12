@@ -1,3 +1,6 @@
+{{-- <x-guest-layout>: C'est un composant Blade qui définit la structure de base de la page
+    Il est défini dans un autre fichier Blade et contient le code HTML commun à toutes les pages, comme l'en-tête et le pied de page --}}
+
 <x-guest-layout>
     <div class="bg-white py-24 sm:py-32">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -7,11 +10,14 @@
           </div>
           <ul role="list" class="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-2 lg:max-w-4xl lg:gap-x-8 xl:max-w-none">
 
+            {{-- boucle Blade qui parcourt tous les artistes dans la base de données. --}}
             @foreach (App\Models\Artist::all() as $artist)
             <li class="flex flex-col gap-6 xl:flex-row">
               <img class="aspect-[4/5] w-52 h-52 flex-none rounded-full object-cover" src="{{ $artist->url }}" alt="">
               <div class="flex-auto">
                 <h3 class="text-lg font-semibold leading-8 tracking-tight text-gray-900">{{ $artist->name }}</h3>
+
+                {{-- C'est un paragraphe qui affiche une description de l'artiste. La fonction Str::limit() de Laravel est utilisée pour limiter la description à 200 caractères. --}}
                 <p class="my-6 text-base leading-7 text-gray-600">
                     {{ Str::limit($artist->description, 200) }}
                 </p>

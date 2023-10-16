@@ -21,7 +21,7 @@
             <textarea type="text" name="description" cols="30" rows="10"></textarea>
 
             <label for="status">status</label>
-            {{-- La valeur de ce champ est prérempli avec la valeur actuelle du statut de l'artiste --}}
+            {{-- La valeur de ce champ est prérempli avec la valeur actuelle du statut de l'oeuvre --}}
             <input type="text" id="status" name="status" value="{{ $work->status }}">
         </div>
         <div>

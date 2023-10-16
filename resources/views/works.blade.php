@@ -7,8 +7,8 @@
           </div>
           <ul role="list" class="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-2 lg:max-w-4xl lg:gap-x-8 xl:max-w-none">
 
-            {{-- boucle Blade qui parcourt tous les artistes dans la base de données. --}}
-            @foreach (App\Models\Work::all($id) as $work)
+            {{-- boucle Blade qui parcourt tous les oeuvres dans la base de données. --}}
+            @foreach (App\Models\Work::all() as $work)
             <li class="flex flex-col gap-6 xl:flex-row">
                 <h3 class="text-lg font-semibold leading-8 tracking-tight text-gray-900">{{ $work->title }}</h3>
 

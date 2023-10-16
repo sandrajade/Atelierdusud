@@ -27,10 +27,12 @@
                         <td class="px-6 py-3">{{ $work->Titre }}</td>
                         <td class="px-6 py-3">{{ $work->description }}</td>
                         <td class="px-6 py-3">
+                            @if ($work->categories)
                             @foreach ($work->categories as $category)
                                 <div class="text-xs text-center text-gray-900  py-1 px-2 rounded-full">
                                     {{ $category->name }}</div>
                             @endforeach
+                            @endif
                         </td>
                         <td class="flex items-center gap-2 px-6 py-3">
                             <a href="{{ route('works.show', $work) }}"

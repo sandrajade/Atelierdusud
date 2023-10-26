@@ -10,8 +10,11 @@
             @method('PUT')
 
     </div>
-    <img src="{{ $work->url }}" />
+    <label for="url">url</label>
+    <input type="text" id="url" name="url" value="{{ $work->url }}">
     <div>
+        <img src="{{ $work->url }}" />
+            <div>
         <div>
             <label for="title">Titre</label>
             <input type="text" name="title" value="{{ $work->title }}">

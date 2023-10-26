@@ -70,7 +70,7 @@ Route::post('works', [WorkController::class, 'store'])->name('works.store');
 Route::get('works/{work}', [WorkController::class, 'show'])->name('works.show');
 Route::get('works/{work}/edit', [WorkController::class, 'edit'])->name('works.edit');
 Route::put('/works/{work}', [WorkController::class, 'update'])->name('works.update');
-Route::delete('works/{work}', [WorkController::class, 'destroy'])->name('works.update');
+Route::delete('works/{work}', [WorkController::class, 'destroy'])->name('works.destroy');
 
 
 

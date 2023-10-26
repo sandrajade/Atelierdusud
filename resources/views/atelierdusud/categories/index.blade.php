@@ -4,32 +4,38 @@
 
     <div name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-           Categories
+            Categories
         </h2>
-        <a href="{{ route('categories.create') }}" class="font-amaranth border-2 border-yellow-300 rounded-md hover:bg-yellow-300 py-2 px-3 transition-all duration-300">
+        <a href="{{ route('categories.create') }}"
+            class="font-amaranth border-2 border-yellow-300 rounded-md hover:bg-yellow-300 py-2 px-3 transition-all duration-300">
             ➕ Ajouter une nouvelle catégorie
         </a>
     </div>
-    {{-- je crée mon tableau qui affiche une liste de dcatégorie, avec chaque catégorie représenté par une ligne du tableau. --}}
+    {{-- je crée mon tableau qui affiche une liste de catégorie, avec chaque catégorie représenté par une ligne du tableau. --}}
     <div>
         <table>
             <thead>
                 <tr>
                     <th scope="col" class="px-6 py-3">Nom</th>
+                    <th scope="col" class="px-6 py-3">Couleur</th>
                     <th scope="col" class="px-6 py-3">status</th>
                 </tr>
             </thead>
             <tbody>
                 {{-- foreach est une boucle Blade qui parcourt chaque catégorie dans la variable $catégorie. Pour chaque catégorie, elle génère une ligne de tableau. --}}
-                       {{-- C'est une cellule de tableau qui affiche le nom de la (catégorie.) propriété name  --}}
+                {{-- C'est une cellule de tableau qui affiche le nom de la (catégorie.) propriété name  --}}
+                <select name="category_id" id="category_id">
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @endforeach
+                </select>
                 @foreach ($categories as $category)
                     <tr>
-
-
                         <th>
                             {{ $category->id }}
                         </th>
                         <td class="px-6 py-3">{{ $category->name }}</td>
+                        <td class="px-6 py-3">{{ $category->color }}</td>
                         <td class="px-6 py-3">{{ $category->status }}</td>
 
                         <td class="px-6 py-3">
@@ -46,6 +52,7 @@
 
                                 {{-- type="submit": Cet attribut indique que le bouton est utilisé pour soumettre un formulaire --}}
                                 <button type="submit">❌ Supprimer</button>
+                              
                             </form>
                         </td>
                     </tr>

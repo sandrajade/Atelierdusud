@@ -49,6 +49,7 @@ class CategoryController extends Controller
 
         $validated = $request->validate([
             'name' => 'required|max255',
+            'color' =>'required',
             'status' => 'required'
         ]);
 
@@ -60,7 +61,8 @@ class CategoryController extends Controller
         //on assigne à chaque colonne de ma table category les données de mon validate qui est un tableau
         //Attention comme c'est un tableau  que l'on récupère donc on met entre crochet ['name...']
 
-        $category->nom = $validated['name'];
+        $category->name = $validated['name'];
+        $category->color = $validated['color'];
         $category->statut = $validated['status'];
 
         //sauvegarde dans la base de donnée
@@ -78,7 +80,7 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\View\View
      */
-    public function show(Category $category)
+    public function show(Category $id)
     {
         //  renvoie une vue de la catégories demandé
         return view('atelierdusud.categories.show');
@@ -130,6 +132,13 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\RedirectResponse
      */
+
+     public function getCategories()
+
+     {
+        $categories = Category::all();
+        return $categories;
+     }
     public function destroy(Category $category)
     {
         $category->delete();
@@ -137,3 +146,4 @@ class CategoryController extends Controller
     }
 
 }
+

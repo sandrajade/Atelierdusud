@@ -4,7 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ArtistController;
-
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\WorkController;
 
@@ -24,6 +24,10 @@ use App\Http\Controllers\WorkController;
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
 
 Route::get('/artistes', function () {
     return view('artists');
@@ -50,7 +54,7 @@ Route::post('artists', [ArtistController::class, 'store'])->name('artists.store'
 Route::get('artists/{artist}', [ArtistController::class, 'show'])->name('artists.show');
 Route::get('artists/{artist}/edit', [ArtistController::class, 'edit'])->name('artists.edit');
 Route::put('artists/{artist}', [ArtistController::class, 'update'])->name('artists.update');
-Route::delete('artists/{artist}', [ArtistController::class, 'destroy'])->name('artist.destroy');
+Route::delete('artists/{artist}', [ArtistController::class, 'destroy'])->name('artists.destroy');
 
 
 // Route::resource('categories', CategoryController::class);
@@ -72,15 +76,9 @@ Route::get('works/{work}/edit', [WorkController::class, 'edit'])->name('works.ed
 Route::put('/works/{work}', [WorkController::class, 'update'])->name('works.update');
 Route::delete('works/{work}', [WorkController::class, 'destroy'])->name('works.destroy');
 
-
-
-
-
-
-
-
-
 // Route::resource('Admins', AdminController::class);
 
 Route::get('/accueil', [FrontController::class, 'accueil'])->name('accueil');
 
+Route::get('/contact', [ContactController::class, 'show'])->name('contact');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');

@@ -22,7 +22,7 @@ class ArtistController extends Controller
         // la methode all récupère toute les données de la table Artist de la base de données et les stocke dans une variable $artists
         $artists = Artist::all();
         // SELECT * FROM artists;
-        return view('atelierdusud.artists.index', compact('artists'));
+        return view('atelierdusud.artists.index', ['artists' => $artists]);
         // renvoie une vue avec toute les données de la table Artist
     }
 
@@ -114,7 +114,7 @@ class ArtistController extends Controller
         ]);
 
 
-        // Mette à jour les propriétés de l'artiste avec les données soumises
+        // Mette à jour les propriétés de l'artiste avec les données soumises, les règles
         $artist->name = $validated['name'];
         $artist->url = $validated['url'];
         $artist->description = $validated['description'];
@@ -123,9 +123,8 @@ class ArtistController extends Controller
         //sauvegarde l'artiste dans la base de données
         $artist->save();
 
-        // Redirige l'utilisateur vers la page d'index des artistes avec un message de succès
-
-        return redirect('atelierdusud.artists.index');
+        // Redirige l'utilisateur vers la page d'index des artistes
+        return redirect('artists');
 
     }
 
@@ -138,6 +137,6 @@ class ArtistController extends Controller
     public function destroy(Artist $artist)
     {
         $artist->delete();
-        return redirect('artists.index');
+        return redirect('artists')->with('success', 'artiste  supprimée avec succès');
     }
 }

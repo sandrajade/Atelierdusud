@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Work;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 /**
@@ -33,8 +34,9 @@ class WorkController extends Controller
      */
     public function create()
     {
+        $categories = Category::all();
         // Retourne une vue nommée works.create, donc un formulaire
-        return view('atelierdusud.works.create');
+        return view('atelierdusud.works.create', ['categories'=> $categories]);
     }
 
     /**
@@ -71,8 +73,10 @@ class WorkController extends Controller
         // Sauvegarde dans la base de donnée
         $work->save();
 
+
+
         // Redirige l'utilisateur vers la page d'index des oeuvres
-        return redirect('atelierdusud.works.index');
+        return redirect()->route('works.index');
     }
 
     /**
@@ -128,7 +132,7 @@ class WorkController extends Controller
         $work->save();
 
         // Redirige l'utilisateur vers la page d'index des oeuvres
-        return redirect('atelierdusud.works.index');
+        return redirect('works');
     }
 
     /**
@@ -140,6 +144,6 @@ class WorkController extends Controller
     public function destroy(Work $work)
     {
         $work->delete();
-        return redirect('atelierdusud.works.index');
+        return redirect('works');
     }
 }

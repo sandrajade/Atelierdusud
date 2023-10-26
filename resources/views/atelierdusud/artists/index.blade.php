@@ -21,7 +21,8 @@
                     <th scope="col" class="px-6 py-3 text-left">Photo</th>
                     <th scope="col" class="px-6 py-3 text-left">Nom</th>
                     <th scope="col" class="px-6 py-3 text-left">Description</th>
-                    <th scope="col" class="px-6 py-3 text-left">État</th>
+                    <th scope="col" class="px-6 py-3 text-left">Status</th>
+
                 </tr>
             </thead>
             <tbody class="divide-y-2 shadow-xl">
@@ -30,7 +31,8 @@
                 <tr class="bg-white hover:bg-gray-100 transition-all duration-150">
                     {{-- C'est une cellule de tableau qui affiche le nom de l'artiste. propriété name  --}}
                     <td class="px-6 py-3">
-                        <img class="rounded-full h-12 w-12 object-cover" src="{{ url($artist->url) }}" alt="{{ $artist->name }}">
+                        {{ $artist->url }}
+                        <img class="rounded-full h-12 w-12 object-cover" src="{{ url($artist->url) }}" alt="{{ $artist->url }}">
                     </td>
                     <td class="px-6 py-3 font-semibold">
                         <a href="{{ route('artists.show', $artist) }}">{{ $artist->name }}</a>
@@ -54,7 +56,7 @@
                         <div class="flex items-center justify-between">
                             {{-- C'est un lien qui pointe vers la route artists.show pour l'artiste actuel. Lorsque vous cliquez sur ce lien, vous serez redirigé vers la page de détail de l'artiste. --}}
                             <a class="text-sm text-blue-600 hover:border-gray-300 border border-transparent py-0.5 px-2 transition-all duration-150" href="{{ route('artists.edit', $artist) }}">✏️ Editer</a>
-                            <form action="{{ route('artist.destroy', $artist) }}" method="POST">
+                            <form action="{{ route('artists.destroy', $artist) }}" method="POST">
                                 {{-- @csrf et @method('delete'): Ce sont des directives Blade qui génèrent un jeton CSRF (est une mesure de sécurité utilisée pour protéger les applications web contre les attaques de type cross-site request forgery (CSRF).) et définissent la méthode HTTP du formulaire sur DELETE. Ces directives sont nécessaires pour protéger contre les attaques de type cross-site request forgery et pour indiquer à Laravel que le formulaire doit envoyer une requête DELETE. --}}
                                 @csrf
                                 @method('delete')

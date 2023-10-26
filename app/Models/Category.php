@@ -19,6 +19,29 @@ class Category extends Model
         return $this->hasMany(Work::class);
     }
 
+    public function getColorAttribute()
+    {
+        switch ($this->category) {
+            case 'photos':
+                return 'red';
+            case 'porcelaines':
+                return 'orange';
+            case 'gravures':
+                return 'emerald';
+            case 'oeuvres numériques':
+                return 'blue';
+            case 'sculptures':
+                return 'amber';
+            case 'poèmes':
+                return 'pink';
+            case 'théâtres':
+                return 'sky';
+            case 'musiques':
+                return 'purple';
+
+        }
+    }
+
 }
 
 

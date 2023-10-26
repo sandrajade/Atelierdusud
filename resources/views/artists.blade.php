@@ -13,7 +13,7 @@
             {{-- boucle Blade qui parcourt tous les artistes dans la base de données. --}}
             @foreach (App\Models\Artist::all() as $artist)
             <li class="flex flex-col gap-6 xl:flex-row">
-              <img class="aspect-[4/5] w-52 h-52 flex-none rounded-full object-cover" src="{{ $artist->url }}" alt="">
+              <img class="aspect-[4/5] w-52 h-52 flex-none rounded-full object-cover  shadow-xl shadow-blue-500/50 mt-10" src="{{ $artist->url }}" alt="">
               <div class="flex-auto">
                 <h3 class="text-lg font-semibold leading-8 tracking-tight text-gray-900">{{ $artist->name }}</h3>
 
@@ -21,7 +21,7 @@
                 <p class="my-6 text-base leading-7 text-gray-600">
                     {{ Str::limit($artist->description, 200) }}
                 </p>
-                <a href="#" class="border rounded-full py-1 px-3 hover:border-yellow-300 transition-all duration-300">
+                <a href="{{ route('artists.show', $artist->id) }}" class="border rounded-full py-1 px-3 hover:border-yellow-300 transition-all duration-300">
                     Découvrir l'artiste <span aria-hidden="true">&rarr;</span>
                 </a>
               </div>

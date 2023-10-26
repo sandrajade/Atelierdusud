@@ -14,11 +14,11 @@
     </button>
 
     <button type="button">
-        category : {{$artist->category}}
+        Category : {{$artist->category}}
     </button>
 
     <button type="button">
-        work : {{$artist->work}}
+        Work : {{$artist->work}}
     </button>
 </div>
 {{-- @endforeach: C'est la fin de la boucle. --}}

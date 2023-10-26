@@ -16,7 +16,7 @@
         <table class="w-full">
             <thead>
                 <tr>
-                    <th scope="col" class="px-6 py-3 text-left">Visuel</th>
+                    <th scope="col" class="px-6 py-3 text-left">Photo</th>
                     <th scope="col" class="px-6 py-3 text-left">Title</th>
                     <th scope="col" class="px-6 py-3 text-left">Artist</th>
                     <th scope="col" class="px-6 py-3 text-left">Categorie</th>
@@ -27,19 +27,22 @@
                 @foreach ($works as $work)
                     <tr class="bg-white hover:bg-gray-100 transition-all duration-150">
                         <td class="px-6 py-3">
-                            <img class="rounded h-12 w-full object-cover" src="{{ url($work->url) }}" alt="{{ $work->title }}">
+                            <img class="rounded h-12 w-full object-cover" src="{{ url($work->url) }}"
+                                alt="{{ $work->title }}">
                         </td>
                         <td class="px-6 py-3">{{ $work->title }}</td>
                         <td class="px-6 py-3">
                             @if ($work->categories)
                                 @foreach ($work->categories as $category)
-                                    <span class="text-xs text-center text-gray-900  py-1 px-2 rounded-full">{{ $category->name }}</span>
+                                    <span
+                                        class="text-xs text-center text-gray-900  py-1 px-2 rounded-full">{{ $category->name }}</span>
                                 @endforeach
                             @endif
                         </td>
                         <td class="px-6 py-3 font-semibold">
                             {{ Str::limit($work->description, 50) }}
-                            <a href="{{ route('works.show', $work) }}" class="ml-2 text-gray-600 text-sm hover:border-gray-300 border border-transparent py-0.5 px-2">
+                            <a href="{{ route('works.show', $work) }}"
+                                class="ml-2 text-gray-600 text-sm hover:border-gray-300 border border-transparent py-0.5 px-2">
                                 → voir
                             </a>
                         </td>

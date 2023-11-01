@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->text('description');
+            $table->foreignId('category_id')->nullable();
             $table->tinyInteger('status')->default(0);
             $table->string('url')->default('https://source.unsplash.com/random/200x500/?abstrait')->nullable();
             $table->timestamps();

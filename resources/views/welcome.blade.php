@@ -17,7 +17,7 @@
                         L'Atelier du Sud</h1>
 
                     <h2 class="text-xl sm:text-5xl font-amita font-bold tracking-tight text-gray-300 rotate-2">Archives
-                        numériques</h2>
+                        et perspectives</h2>
 
                     <p class="mt-6 text-xl leading-8 text-gray-300">
                         Ici, nous avons le plaisir de vous présenter un espace unique, conçu avec passion pour mettre en

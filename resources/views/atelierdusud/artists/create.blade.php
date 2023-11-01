@@ -9,7 +9,8 @@
             </h2>
             <a href="{{ route('artists.index') }}"
                 class="border-2 font-amaranth border-yellow-300 rounded-md hover:bg-yellow-300 py-2 px-3 transition-all duration-300">
-                ⬅️ Retour aux artistes</a>
+                ⬅️ Retour aux artistes
+            </a>
         </div>
 
     </div>

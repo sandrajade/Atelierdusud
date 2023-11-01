@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use\App\Models\Work;
+use App\Models\Work;
 
 class WorkSeeder extends Seeder
 {
@@ -14,38 +14,29 @@ class WorkSeeder extends Seeder
     public function run()
     {
         Work::create([
-            'url' => './images/asset5',
+            'url' => './images/asset5.jpeg',
             'title' => 'Poème',
             'description' => 'Description de l\'œuvre',
-            'artist_id' => '',
-            'category_id' => '',
+
+            'category_id' => null,
             'status' => 1,
 
         ]);
         Work::create([
-            'url' => './images/asset1',
+            'url' => '/images/asset1.jpeg',
             'title' => 'Poème',
             'description' => 'Description de l\'œuvre',
-            'artist_id' => '',
-            'category_id' => '',
+
+            'category_id' => null,
             'status' => 1,
 
         ]);
         Work::create([
-            'url' => './images/asset4',
+            'url' => './images/asset4.jpg',
             'title' => 'Poème',
             'description' => 'Description de l\'œuvre',
-            'artist_id' => '',
-            'category_id' => '',
-            'status' => 1,
 
-        ]);
-        Work::create([
-            'url' => './images/asset5',
-            'title' => 'Poème',
-            'description' => 'Description de l\'œuvre',
-            'artist_id' => '',
-            'category_id' => '',
+            'category_id' => null,
             'status' => 1,
 
         ]);
@@ -53,8 +44,8 @@ class WorkSeeder extends Seeder
             'url' => './images/asset5',
             'title' => 'Poème',
             'description' => 'Description de l\'œuvre',
-            'artist_id' => '',
-            'category_id' => '',
+
+            'category_id' => null,
             'status' => 1,
 
         ]);
@@ -62,8 +53,8 @@ class WorkSeeder extends Seeder
             'url' => './images/asset5',
             'title' => 'Poème',
             'description' => 'Description de l\'œuvre',
-            'artist_id' => '',
-            'category_id' => '',
+
+            'category_id' => null,
             'status' => 1,
 
         ]);
@@ -71,8 +62,8 @@ class WorkSeeder extends Seeder
             'url' => './images/asset5',
             'title' => 'Poème',
             'description' => 'Description de l\'œuvre',
-            'artist_id' => '',
-            'category_id' => '',
+
+            'category_id' => null,
             'status' => 1,
 
         ]);
@@ -80,8 +71,8 @@ class WorkSeeder extends Seeder
             'url' => './images/asset5',
             'title' => 'Poème',
             'description' => 'Description de l\'œuvre',
-            'artist_id' => '',
-            'category_id' => '',
+
+            'category_id' => null,
             'status' => 1,
 
         ]);
@@ -89,8 +80,8 @@ class WorkSeeder extends Seeder
             'url' => './images/asset5',
             'title' => 'Poème',
             'description' => 'Description de l\'œuvre',
-            'artist_id' => '',
-            'category_id' => '',
+
+            'category_id' => null,
             'status' => 1,
 
         ]);
@@ -98,8 +89,8 @@ class WorkSeeder extends Seeder
             'url' => './images/asset5',
             'title' => 'Poème',
             'description' => 'Description de l\'œuvre',
-            'artist_id' => '',
-            'category_id' => '',
+
+            'category_id' => null,
             'status' => 1,
 
         ]);
@@ -107,8 +98,8 @@ class WorkSeeder extends Seeder
             'url' => './images/asset5',
             'title' => 'Poème',
             'description' => 'Description de l\'œuvre',
-            'artist_id' => '',
-            'category_id' => '',
+
+            'category_id' => null,
             'status' => 1,
 
         ]);
@@ -116,8 +107,8 @@ class WorkSeeder extends Seeder
             'url' => './images/asset5',
             'title' => 'Poème',
             'description' => 'Description de l\'œuvre',
-            'artist_id' => '',
-            'category_id' => '',
+
+            'category_id' => null,
             'status' => 1,
 
         ]);
@@ -125,8 +116,8 @@ class WorkSeeder extends Seeder
             'url' => './images/asset5',
             'title' => 'Poème',
             'description' => 'Description de l\'œuvre',
-            'artist_id' => '',
-            'category_id' => '',
+
+            'category_id' => null,
             'status' => 1,
 
         ]);
@@ -134,8 +125,8 @@ class WorkSeeder extends Seeder
             'url' => './images/asset5',
             'title' => 'Poème',
             'description' => 'Description de l\'œuvre',
-            'artist_id' => '',
-            'category_id' => '',
+
+            'category_id' => null,
             'status' => 1,
 
         ]);
@@ -143,8 +134,8 @@ class WorkSeeder extends Seeder
             'url' => './images/asset5',
             'title' => 'Poème',
             'description' => 'Description de l\'œuvre',
-            'artist_id' => '',
-            'category_id' => '',
+
+            'category_id' => null,
             'status' => 1,
 
         ]);
@@ -152,8 +143,8 @@ class WorkSeeder extends Seeder
             'url' => './images/asset5',
             'title' => 'Poème',
             'description' => 'Description de l\'œuvre',
-            'artist_id' => '',
-            'category_id' => '',
+
+            'category_id' => null,
             'status' => 1,
 
         ]);
@@ -161,8 +152,8 @@ class WorkSeeder extends Seeder
             'url' => './images/asset5',
             'title' => 'Poème',
             'description' => 'Description de l\'œuvre',
-            'artist_id' => '',
-            'category_id' => '',
+
+            'category_id' => null,
             'status' => 1,
 
         ]);
@@ -170,8 +161,8 @@ class WorkSeeder extends Seeder
             'url' => './images/asset5',
             'title' => 'Poème',
             'description' => 'Description de l\'œuvre',
-            'artist_id' => '',
-            'category_id' => '',
+
+            'category_id' => null,
             'status' => 1,
 
         ]);
@@ -179,8 +170,8 @@ class WorkSeeder extends Seeder
             'url' => './images/asset5',
             'title' => 'Poème',
             'description' => 'Description de l\'œuvre',
-            'artist_id' => '',
-            'category_id' => '',
+
+            'category_id' => null,
             'status' => 1,
 
         ]);
@@ -188,8 +179,8 @@ class WorkSeeder extends Seeder
             'url' => './images/asset5',
             'title' => 'Poème',
             'description' => 'Description de l\'œuvre',
-            'artist_id' => '',
-            'category_id' => '',
+
+            'category_id' => null,
             'status' => 1,
 
         ]);
@@ -197,8 +188,8 @@ class WorkSeeder extends Seeder
             'url' => './images/asset5',
             'title' => 'Poème',
             'description' => 'Description de l\'œuvre',
-            'artist_id' => '',
-            'category_id' => '',
+
+            'category_id' => null,
             'status' => 1,
 
         ]);
@@ -206,8 +197,17 @@ class WorkSeeder extends Seeder
             'url' => './images/asset5',
             'title' => 'Poème',
             'description' => 'Description de l\'œuvre',
-            'artist_id' => '',
-            'category_id' => '',
+
+            'category_id' => null,
+            'status' => 1,
+
+        ]);
+        Work::create([
+            'url' => './images/asset5',
+            'title' => 'Poème',
+            'description' => 'Description de l\'œuvre',
+
+            'category_id' => null,
             'status' => 1,
 
         ]);

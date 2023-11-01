@@ -41,7 +41,9 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
-])->group(function () {
+])
+
+->group(function () {
     Route::get('/atelierdusud.accueil', function () {
         return view('atelierdusud.accueil');
     })->name('atelierdusud.accueil');
@@ -63,7 +65,7 @@ Route::get('categories/create', [CategoryController::class, 'create'])->name('ca
 Route::post('categories', [CategoryController::class, 'store'])->name('categories.store');
 Route::get('categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
 Route::get('categories/{category}/edit', [categoryController::class, 'edit'])->name('categories.edit');
-Route::put('categories/{category}', [CategoryControler::class, 'update'])->name('categories.update');
+Route::put('categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
 Route::delete('categories/{category}', [categoryController::class, 'destroy'])->name('categories.destroy');
 
 

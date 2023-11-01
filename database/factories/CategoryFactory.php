@@ -15,12 +15,11 @@ class CategoryFactory extends Factory
      * @return array<string, mixed>
      */
 
-     public function definition(): array
-     {
-         return [
-             'name' => $this->faker->name(),
-             'color' => $this->faker->colorName(),
-             'status' => 1,
-         ];
-     }
- }
+    public function definition(): array
+    {
+        return [
+            'name' => $this->faker->name(),
+            'status' => 1,
+        ];
+    }
+}

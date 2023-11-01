@@ -12,7 +12,7 @@
             <li class="flex flex-col gap-6 xl:flex-row">
                 <h3 class="text-lg font-semibold leading-8 tracking-tight text-gray-900">{{ $work->title }}</h3>
 
-              <img class="aspect-[4/5] gap-4 columns-2 md:columns-3 lg:columns-4 [&>img:not(:first-child)]:mt-4 px-4flex-none rounded object-cover shadow-2xl shadow-orange-500/20" src="{{ $work->url }}" alt="">
+              <img class="aspect-[4/5] gap-4 columns-2 md:columns-3 lg:columns-4 [&>img:not(:first-child)]:mt-4 px-4flex-none rounded object-cover shadow-xl shadow-orange-500/50" src="{{ $work->url }}" alt="">
               <div class="flex-auto">
                 <h3 class="text-lg font-semibold leading-8 tracking-tight text-gray-900">{{ $work->name }}</h3>
 

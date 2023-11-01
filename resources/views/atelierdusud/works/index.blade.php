@@ -3,11 +3,11 @@
     <div class="bg-white sticky top-0 shadow-lg">
         <div class="flex items-center justify-between px-8 py-2">
             <h2 class="font-semibold text-xl font-amaranth text-gray-800 leading-tight">
-                🖼️ Oeuvres
+                🖼️ Création
             </h2>
             <a href="{{ route('works.create') }}"
                 class="font-amaranth border-2 border-yellow-300 rounded-md hover:bg-yellow-300 py-2 px-3 transition-all duration-300">
-                ➕ Ajouter une nouvelle oeuvre
+                ➕ Ajouter une nouvelle Création
             </a>
         </div>
     </div>

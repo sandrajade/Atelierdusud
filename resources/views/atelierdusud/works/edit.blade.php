@@ -1,7 +1,7 @@
-<x-app-layout>
-    <div class="w-4/5 p-20 m-auto">
-        <div class="bg-white sticky shadow-lg">
-            <div class="flex items-center justify-between px-8 py-2">
+<x-guest-layout>
+    <div class="w-1/3 m-auto shadow-xl shadow-orange-500/50"">
+        <div class="bg-white sticky p-3 mt-20 shadow-lg">
+            <div class="flex items-center justify-between m-auto">
                 <h2 class="font-semibold font-amaranth text-xl text-gray-800 leading-tight">✏️ Editer une oeuvre</h2>
                 <a href="{{ route('works.index') }}"
                     class="border-2 font-amaranth border-yellow-300 rounded-md hover:bg-yellow-300 py-2 px-3 transition-all duration-300">⬅️
@@ -15,28 +15,10 @@
                 @csrf
                 @method('PUT')
 
-                <div>
+            <img src="{{ $work->url }}" />
+            <div>
 
-                    <div>
-
-                        <label for="url" class="block text-sm font-medium leading-6 text-gray-900">Photo</label>
-                        <div class="mt-2 flex items-center gap-x-3">
-                            <label for="url"
-                                class="relative cursor-pointer rounded-md bg-white font-semibold text-blue-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-blue-600 focus-within:ring-offset-2 hover:text-blue-500">
-                                <span>Téléverser une photo</span>
-                                <input id="url" name="url" type="file" class="sr-only">
-                            </label>
-                        </div>
-                    </div>
                 <div>
-                    <div>
-                        <label>Categorie:</label>
-                        <select name="category_id" id="category_id">
-                            @foreach ($categories as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
 
                     <div class="flex items-center" x-data="{ on: false }">
                         <button type="button"
@@ -49,6 +31,17 @@
                                 x-state:on="Enabled" x-state:off="Not Enabled"
                                 :class="{ 'translate-x-5': on, 'translate-x-0': !(on) }"></span>
                         </button>
+
+                        <div>
+                            <label>Categorie:</label>
+                            <select name="category_id">
+                                {{ dump($categories) }}
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
                         <span class="ml-3 text-sm" id="annual-billing-label" @click="on = !on">
                             <span class="font-medium text-gray-900">Activer l'oeuvre</span>
                             <span class="text-gray-500">(apparaitra en ligne)</span>

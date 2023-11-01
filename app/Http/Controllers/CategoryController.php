@@ -11,7 +11,7 @@ use App\Models\Category;
  */
 class CategoryController extends Controller
 {
-     /**
+    /**
      * Display a listing of the category resource.
      *
      * @return \Illuminate\View\View
@@ -32,11 +32,11 @@ class CategoryController extends Controller
     public function create()
     {
         //retourne une vue nommée category.create, donc un formulaire
-
+      
         return view('atelierdusud.categories.index');
     }
 
-      /**
+    /**
      * Store a newly created category resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -49,7 +49,7 @@ class CategoryController extends Controller
 
         $validated = $request->validate([
             'name' => 'required|max255',
-            'color' =>'required',
+            'color' => 'required',
             'status' => 'required'
         ]);
 
@@ -86,7 +86,7 @@ class CategoryController extends Controller
         return view('atelierdusud.categories.show');
     }
 
-      /**
+    /**
      * Display the form to edit a specified category resource.
      *
      * @param  \App\Models\Category  $category
@@ -99,7 +99,7 @@ class CategoryController extends Controller
     }
 
 
-        /**
+    /**
      * Update the specified category resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -126,19 +126,18 @@ class CategoryController extends Controller
 
     }
 
-     /**
+    /**
      * Remove the specified category resource from storage.
      *
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\RedirectResponse
      */
 
-     public function getCategories()
-
-     {
+    public function getCategories()
+    {
         $categories = Category::all();
         return $categories;
-     }
+    }
     public function destroy(Category $category)
     {
         $category->delete();

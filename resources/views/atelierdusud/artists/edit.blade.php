@@ -1,10 +1,9 @@
 {{-- ce code affiche un formulaire pour éditer un artiste existant. Lorsque vous remplissez le formulaire et que vous cliquez sur le bouton "Enregistrer", les données du formulaire sont envoyées au serveur et utilisées pour mettre à jour l'artiste dans la base de données --}}
 {{-- C'est un composant Blade qui inclut le layout principal de l'application. Le layout principal contient généralement des éléments qui sont communs à plusieurs pages --}}
 <x-guest-layout>
-    <div class="w-4/5 p-20 m-auto">
-
-        <div class="bg-white sticky shadow-lg">
-            <div class="flex items-center justify-between px-8 py-2">
+    <div class="w-3/6 m-auto shadow-xl shadow-orange-500/50"">
+        <div class="bg-white sticky p-3 mt-20 shadow-lg">
+            <div class="flex items-center justify-between m-auto">
                 <h2 class="font-semibold font-amaranth text-xl text-gray-800 leading-tight">
                     ✏️ Editer un artiste</h2>
                     <a href="{{ route('artists.index') }}"

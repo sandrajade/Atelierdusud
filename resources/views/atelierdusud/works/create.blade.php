@@ -2,12 +2,14 @@
 
     <div class="bg-white sticky top-0 shadow-lg">
         <div class="flex items-center justify-between px-8 py-2">
-            <h2 class="font-semibold font-amaranth text-xl text-gray-800 leading-tight">
-                <h2 h2 class="font-semibold font-amaranth text-xl text-gray-800 leading-tight">🖼️ > Ajouter une oeuvre </h2>
-                <a href="{{ route('works.index') }}"
-                    class="border-2 font-amaranth border-yellow-300 rounded-md hover:bg-yellow-300 py-2 px-3 transition-all duration-300">
-                    ⬅️ Retour aux oeuvres</a>
-        </h2>
+            <h2 class="font-semibold font-amaranth text-xl text-gray-800 leading-tight">Ajouter une oeuvre
+            </h2>
+            <a href="{{ route('works.index') }}"
+                class="border-2 font-amaranth border-yellow-300 rounded-md hover:bg-yellow-300 py-2 px-3 transition-all duration-300">
+                ⬅️ Retour aux oeuvres
+            </a>
+            </h2>
+        </div>
     </div>
 
     <div class="bg-white max-w-5xl mx-auto my-12 p-8 shadow-xl rounded-sm">
@@ -39,7 +41,8 @@
                     </div>
                 </div>
                 <div>
-                    <label for="description" class="block text-sm font-medium leading-6 text-gray-900 capitalize">Description</label>
+                    <label for="description"
+                        class="block text-sm font-medium leading-6 text-gray-900 capitalize">Description</label>
                     <div class="mt-2">
                         <textarea name="description" id="description" cols="50" rows="10"
                             placeholder="Écrivez quelques lignes à propos de l'oeuvre"
@@ -52,7 +55,8 @@
 
                 <div>
                     <label>Categorie:</label>
-                    <select name="category_id" id="category_id">
+                    <select name="category_id">
+                        {{ dump($categories) }}
                         @foreach ($categories as $category)
                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                         @endforeach
@@ -75,7 +79,6 @@
                         <span class="text-gray-500">(apparaitra en ligne)</span>
                     </span>
                 </div>
-
                 <button type="submit"
                     class="bg-green-500 hover:bg-green-700 text-white uppercase tracking-widest py-2 rounded-md">Enregistrer
                 </button>

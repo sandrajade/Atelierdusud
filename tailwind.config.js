@@ -17,6 +17,8 @@ export default {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
                 amita: ['Amita'],
                 amaranth: ['Amaranth'],
+                barriecito: ['Barriecito'],
+                lacquer: ['Lacquer'],
             },
         },
     },

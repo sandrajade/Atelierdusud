@@ -22,7 +22,6 @@
                     <th scope="col" class="px-6 py-3 text-left">Nom</th>
                     <th scope="col" class="px-6 py-3 text-left">Description</th>
                     <th scope="col" class="px-6 py-3 text-left">Status</th>
-
                 </tr>
             </thead>
             <tbody class="divide-y-2 shadow-xl">
@@ -31,15 +30,24 @@
                 <tr class="bg-white hover:bg-gray-100 transition-all duration-150">
                     {{-- C'est une cellule de tableau qui affiche le nom de l'artiste. propriété name  --}}
                     <td class="px-6 py-3">
-                        {{ $artist->url }}
-                        <img class="rounded-full h-12 w-12 object-cover" src="{{ url($artist->url) }}" alt="{{ $artist->url }}">
+                        <img class="rounded-full h-12 w-12 object-cover" src="{{ url($artist->url) }}" alt="{{ $artist->name }}">
                     </td>
                     <td class="px-6 py-3 font-semibold">
                         <a href="{{ route('artists.show', $artist) }}">{{ $artist->name }}</a>
                     </td>
-                    <td class="px-6 py-3">
+                    {{--
+                    - L'attribut x-data="{ open: false }" fait partie d'Alpine.js, un framework JavaScript minimal. Il définit un état appelé open et fixe sa valeur initiale à false.
+                    - Le {{ Str::limit($artist->description, 50) }} est une syntaxe Blade pour afficher des données. Ici, il affiche une version tronquée de la description de l'artiste, limitée à 50 caractères.
+                    - Le <button x-on:click="open = ! open" class="ml-2 text-gray-600 text-sm hover:border-gray-300 border border-transparent py-0.5 px-2">→ lire la suite</button> est un bouton qui, lorsqu'il est cliqué, bascule l'état open. Ceci est réalisé par l'attribut x-on:click="open = ! open", une autre fonctionnalité d'Alpine.js.
+                    - Le <div x-cloak x-transition x-show="open" @click.outside="open = false" class="fixed mt-2 bg-white shadow-xl p-4 w-96 "> est une div qui est montrée ou cachée en fonction de l'état open. L'attribut x-show="open" contrôle sa visibilité. L'attribut @click.outside="open = false" assure que si un événement de clic se produit en dehors de cette div, l'état open est fixé à false, cachant efficacement la div.
+                    - Enfin, {{ $artist->description }} à l'intérieur de la div affiche la description complète de l'artiste.
+                    --}}
+                    <td x-data="{ open: false }" class="px-6 py-3">
                         {{ Str::limit($artist->description, 50) }}
-                        <a href="{{ route('artists.show', $artist) }}" class="ml-2 text-gray-600 text-sm hover:border-gray-300 border border-transparent py-0.5 px-2">→ lire la suite</a>
+                        <button x-on:click="open = ! open" class="ml-2 text-gray-600 text-sm hover:border-gray-300 border border-transparent py-0.5 px-2">→ lire la suite</button>
+                        <div x-cloak x-transition x-show="open" @click.outside="open = false" class="fixed mt-2 bg-white shadow-xl p-4 w-96 ">
+                            {{ $artist->description }}
+                        </div>
                     </td>
                     <td class="px-6 py-3">
                         @switch($artist->status)
@@ -53,7 +61,7 @@
                     </td>
 
                     <td class="px-6 py-3 ">
-                        <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4 justify-end">
                             {{-- C'est un lien qui pointe vers la route artists.show pour l'artiste actuel. Lorsque vous cliquez sur ce lien, vous serez redirigé vers la page de détail de l'artiste. --}}
                             <a class="text-sm text-blue-600 hover:border-gray-300 border border-transparent py-0.5 px-2 transition-all duration-150" href="{{ route('artists.edit', $artist) }}">✏️ Editer</a>
                             <form action="{{ route('artists.destroy', $artist) }}" method="POST">
@@ -68,6 +76,7 @@
                         </div>
                     </td>
                 </tr>
+
                 @endforeach
             </tbody>
         </table>

@@ -12,6 +12,8 @@
     <link href="https://fonts.bunny.net/css?family=amita:400,700" rel="stylesheet" />
     <link href="https://fonts.bunny.net/css?family=amaranth:400" rel="stylesheet" />
     <link href="https://fonts.bunny.net/css?family=amaranth:400,400i,700,700i" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=barriecito:400" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=lacquer:400" rel="stylesheet" />
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -31,14 +33,14 @@
 
                         <!-- Logo -->
                         <div class="shrink-0 flex items-center">
-                            <a href="{{ route('atelierdusud.accueil') }}">
+                            <a href="{{ route('welcome') }}">
                                 <x-application-mark class="block h-16 w-auto" />
                             </a>
                         </div>
 
                         <!-- Navigation Links -->
                         <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <x-nav-link href="{{ route('atelierdusud.accueil') }}" :active="request()->routeIs('atelierdusud.accueil')">
+                            <x-nav-link href="{{ route('welcome') }}" :active="request()->routeIs('welcome')">
                                 {{ __('Accueil') }}
                             </x-nav-link>
                             <x-nav-link href="{{ route('works.index') }}" :active="request()->routeIs('works.*')">
@@ -192,7 +194,7 @@
         </nav>
 
         <!-- Page Content -->
-        <main>
+        <main class="pb-24">
             {{ $slot }}
         </main>
         <!-- End Page Content -->

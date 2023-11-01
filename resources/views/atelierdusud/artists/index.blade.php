@@ -5,7 +5,7 @@
     <div class="bg-white sticky top-0 shadow-lg">
         <div class="flex items-center justify-between px-8 py-2">
             <h2 class="font-semibold text-xl font-amaranth text-gray-800 leading-tight">
-                👩‍🎨 Artistes
+                👩‍🎨 Artistes ({{ $artists->count() }})
             </h2>
             <a href="{{ route('artists.create') }}" class="font-amaranth border-2 border-yellow-300 rounded-md hover:bg-yellow-300 py-2 px-3 transition-all duration-300">
                 ➕ Ajouter un nouvel artiste
@@ -22,6 +22,7 @@
                     <th scope="col" class="px-6 py-3 text-left">Nom</th>
                     <th scope="col" class="px-6 py-3 text-left">Description</th>
                     <th scope="col" class="px-6 py-3 text-left">Status</th>
+                    <th scope="col" class="px-6 py-3 text-left"></th>
                 </tr>
             </thead>
             <tbody class="divide-y-2 shadow-xl">
@@ -45,7 +46,7 @@
                     <td x-data="{ open: false }" class="px-6 py-3">
                         {{ Str::limit($artist->description, 50) }}
                         <button x-on:click="open = ! open" class="ml-2 text-gray-600 text-sm hover:border-gray-300 border border-transparent py-0.5 px-2">→ lire la suite</button>
-                        <div x-cloak x-transition x-show="open" @click.outside="open = false" class="fixed mt-2 bg-white shadow-xl p-4 w-96 ">
+                        <div x-cloak x-transition x-show="open" @click.outside="open = false" class="absolute mt-2 bg-white shadow-xl p-4 w-96 ">
                             {{ $artist->description }}
                         </div>
                     </td>

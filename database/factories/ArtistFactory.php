@@ -19,7 +19,8 @@ class ArtistFactory extends Factory
         return [
             'name' => $this->faker->name(),
             'description' => $this->faker->paragraph(10),
-            'status' => 1,
+            'url' => $this->faker->imageUrl(640, 480, 'human', true),
+            'status' => $this->faker->numberBetween(0, 1),
         ];
     }
 }

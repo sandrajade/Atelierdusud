@@ -18,8 +18,10 @@ class WorkFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => $this->faker->title(),
-            'description' => $this->faker->paragraph(10),
+            'title' => $this->faker->words(3, true),
+            'description' => $this->faker->text(200),
+            'category_id' => $this->faker->numberBetween(1, 8),
+            'url' => $this->faker->imageUrl(640, 480, 'art', true),
             'status' => 1,
         ];
     }

@@ -11,13 +11,19 @@ class Work extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'category_id', 'status', 'url'];
+    protected $fillable = [
+        'title',
+        'description',
+        'category_id',
+        'status',
+        'url'
+    ];
 
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
-    public function artist(): BelongsToMany
+    public function artists(): BelongsToMany
     {
         return $this->belongsToMany(Artist::class);
     }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Work;
+use App\Models\Artist;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -35,8 +36,9 @@ class WorkController extends Controller
     public function create()
     {
         $categories = Category::all();
+        $artists = Artist::all();
         // Retourne une vue nommée works.create, donc un formulaire
-        return view('atelierdusud.works.create', ['categories'=> $categories]);
+        return view('atelierdusud.works.create', compact('categories', 'artists'));
     }
 
     /**
@@ -50,30 +52,35 @@ class WorkController extends Controller
         // la méthode validate vérifie les données que l'utilisateur à envoyé à partir d'un formulaire
         // Ma variable validated retourne un tableau
         $validated = $request->validate([
-            'url' => 'required',
             'title' => 'required|max:255',
             'description' => 'required',
             'category_id' => 'required',
-            'status' => 'required'
+            'artists' => 'required|array',
+            'status' => 'required|boolean',
+            'url' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         // Crée une représentation d'un enregistrement dans une table de donnée, remplissage de champ
-
         // Je crée un nouvel objet de type work
         $work = new Work;
 
         // On assigne à chaque colonne de ma table artist les données de mon validate qui est un tableau
         // Attention comme c'est un tableau  que l'on récupère donc on met entre crochet ['name...']
-        $work->url = $validated['url'];
         $work->title = $validated['title'];
         $work->description = $validated['description'];
         $work->category_id = $validated['category_id'];
         $work->status = $validated['status'];
 
+        //on récupère l'image et on la stocke
+        $imageName = time() . '.' . $request->url->extension();
+        $request->url->move(public_path('works_img'), $imageName);
+        $work->url = './works_img/' . $imageName;
+
+
         // Sauvegarde dans la base de donnée
         $work->save();
 
-
+        $work->artists()->sync($validated['artists']);
 
         // Redirige l'utilisateur vers la page d'index des oeuvres
         return redirect()->route('works.index');
@@ -99,8 +106,10 @@ class WorkController extends Controller
      */
     public function edit(Work $work)
     {
+        $categories = Category::all();
+        $artists = Artist::all();
         // Renvoie une vue de l'artiste demandé
-        return view('atelierdusud.works.edit', compact('work'));
+        return view('atelierdusud.works.edit', compact('work', 'categories', 'artists'));
     }
 
     /**
@@ -114,19 +123,27 @@ class WorkController extends Controller
     {
         // Vérifie les données que l'utilisateur à envoyé à partir d'un formulaire
         $validated = $request->validate([
-            'url' => 'required',
             'title' => 'required|max:255',
             'description' => 'required',
             'category_id' => 'required',
-            'status' => 'required'
+            'artists' => 'required|array',
+            'status' => 'required|boolean',
+            'url' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         // Mette à jour les propriétés de l'artiste avec les données soumises
-        $work->url = $validated['url'];
         $work->title = $validated['title'];
         $work->description = $validated['description'];
         $work->category_id = $validated['category_id'];
         $work->status = $validated['status'];
+
+        if ($request->hasFile('url')) {
+            $imageName = time() . '.' . $request->url->extension();
+            $request->url->move(public_path('works_img'), $imageName);
+            $work->url = './works_img/' . $imageName;
+        }
+
+        $work->artists()->sync($validated['artists']);
 
         // Sauvegarde dans la base de donnée
         $work->save();

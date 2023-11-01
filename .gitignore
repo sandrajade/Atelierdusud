@@ -18,3 +18,5 @@ yarn-error.log
 /.idea
 /.vscode
 /public/artists_img
+/public/work_img
+/public/works_img

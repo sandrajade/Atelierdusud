@@ -3,11 +3,11 @@
 
     <div class="overflow-hidden bg-white pt-24">
         <div class="relative mx-auto max-w-7xl px-6 py-16 lg:px-8">
-            <div class="absolute bottom-0 left-3/4 top-0 hidden w-screen bg-gray-50 lg:block"></div>
+            <img class="absolute bottom-0 left-3/4 top-0 hidden w-screen bg-yellow-200 lg:block" src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
             <div class="mx-auto max-w-prose text-base lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-8">
                 <div>
-                    <h2 class="text-lg font-semibold text-yellow-600 font-lacquer">Découvrez</h2>
-                    <h3 class="mt-2 text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl font-barriecito">{{ $artist->name }}</h3>
+                    <div class="text-lg font-semibold text-yellow-600 font-lacquer">Découvrez</div>
+                    <h2 class="mt-2 text-3xl font-bold leading-8 tracking-tight text-gray-900 sm:text-4xl font-barriecito">{{ $artist->name }}</h2>
                 </div>
             </div>
             <div class="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">
@@ -21,9 +21,7 @@
                         <rect width="404" height="384" fill="url(#de316486-4a29-4312-bdfc-fbce2132a2c1)" />
                     </svg>
                     <div class="relative mx-auto max-w-prose text-base lg:max-w-none">
-                        <div class="aspect-h-7 aspect-w-12 lg:aspect-none">
-                            <img class="rounded-lg object-cover object-center shadow-lg" src="{{ url($artist->url) }}" alt="Whitney leaning against a railing on a downtown street" width="1184" height="1376">
-                        </div>
+                        <img class="rounded-full w-[24rem] h-[24rem] md:w-[36rem] md:h-[36rem] object-cover object-center shadow-lg" src="{{ url($artist->url) }}" alt="{{ $artist->name }}">
                     </div>
                 </div>
                 <div class="mt-8 lg:mt-0">
@@ -45,9 +43,9 @@
             </h3>
 
             <div class="gap-4 columns-2 md:columns-3 lg:columns-4 [&>img:not(:first-child)]:mt-4 px-4">
-                {{-- @foreach ($artist->works as $work)
-                <img data-aos="zoom-in-down" data-aos-duration="500" class="rounded-lg" src="./images/asset1.jpeg" alt="">
-                @endforeach --}}
+                @foreach ($artist->works as $work)
+                <img data-aos="zoom-in-down" data-aos-duration="500" class="rounded-lg" src="{{ url($work->url) }}" alt="">
+                @endforeach
             </div>
         </div>
 

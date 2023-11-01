@@ -15,44 +15,36 @@ class CategorySeeder extends Seeder
     {
 
         Category::create([
-            'name' => 'Photos',
+            'name' => 'photo',
             'status' => 1,
-
         ]);
         Category::create([
-            'name' => 'porcelaines',
+            'name' => 'porcelaine',
             'status' => 1,
-
         ]);
         Category::create([
-            'name' => 'Gravures',
+            'name' => 'gravure',
             'status' => 1,
-
         ]);
         Category::create([
-            'name' => 'Oeuvres Numériques',
+            'name' => 'oeuvre numérique',
             'status' => 1,
-
         ]);
         Category::create([
-            'name' => 'sculptures',
+            'name' => 'sculpture',
             'status' => 1,
-
         ]);
         Category::create([
-            'name' => 'poèmes',
+            'name' => 'poème',
             'status' => 1,
-
         ]);
         Category::create([
-            'name' => 'théâtres',
+            'name' => 'théâtre',
             'status' => 1,
-            ]);
-
+        ]);
         Category::create([
-            'name' => 'Musiques',
+            'name' => 'musique',
             'status' => 1,
-
         ]);
     }
 }

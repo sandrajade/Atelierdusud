@@ -3,16 +3,21 @@
 
 <x-guest-layout>
     <div class="bg-white py-24 sm:py-32">
-        <div class="mx-auto max-w-none px-6 lg:px-8">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
             <div class="mx-auto max-w-2xl sm:text-center">
+                <div class="text-lg font-semibold text-yellow-600 font-lacquer">Découvrez</div>
                 <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl font-barriecito">Notre Gallerie d'Artistes</h2>
                 <p class="mt-6 text-lg leading-8 text-gray-600">
-                    Notre galerie d'artistes vous invite à explorer un monde d'expression artistique diversifié. Découvrez des talents créatifs dans divers médiums, de la peinture à la sculpture, en passant par la photographie. Chaque artiste apporte sa vision unique à travers des œuvres captivantes. Laissez-vous inspirer par des histoires visuelles fascinantes et plongez dans l'art contemporain avec nous. </p>
+                    Nos quelques <span class="font-lacquer text-yellow-600 ">{{ $artists->count() }} artistes</span> vous invitent à explorer un monde d'expression artistique diversifié.
+                    Découvrez des talents créatifs dans divers médiums, de la peinture à la sculpture, en passant par la photographie.
+                    Chaque artiste apporte sa vision unique à travers des œuvres captivantes.
+                    Laissez-vous inspirer par des histoires visuelles fascinantes et plongez dans l'art contemporain avec nous.
+                </p>
             </div>
-            <ul role="list" class="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-3 lg:max-w-4xl lg:gap-x-8 xl:max-w-none">
+            <ul role="list" class="mx-auto mt-20 grid max-w-2xl grid-cols-1 gap-x-6 gap-y-20 sm:grid-cols-2 lg:max-w-4xl lg:gap-x-8 xl:max-w-none">
 
                 {{-- boucle Blade qui parcourt tous les artistes dans la base de données. --}}
-                @foreach (App\Models\Artist::all() as $artist)
+                @foreach ($artists as $artist)
                 <li class="flex flex-col gap-6 xl:flex-row">
                     <img class="aspect-[4/5] w-52 h-52 flex-none rounded-full object-cover  shadow-xl shadow-blue-500/50 mt-10" src="{{ $artist->url }}" alt="">
                     <div class="flex-auto">

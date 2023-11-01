@@ -9,7 +9,7 @@ class FrontController extends Controller
 
     function indexArtists()
     {
-        $artists = Artist::all();
+        $artists = Artist::where('status', true)->get();
         return view('artists', compact('artists'));
     }
 

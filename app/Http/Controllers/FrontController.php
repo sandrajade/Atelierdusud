@@ -2,13 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Archive;
-use\App\Models\Artistes;
-
-use Illuminate\Http\Request;
-
+use App\Models\Artist;
 
 class FrontController extends Controller
 {
-    
+
+    function indexArtists()
+    {
+        $artists = Artist::all();
+        return view('artists', compact('artists'));
+    }
+
+    function showArtist(Artist $artist)
+    {
+        return view('artist', compact('artist'));
+    }
+
 }

@@ -1,10 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WorkController;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\WorkController;
 
 
 /*
@@ -28,13 +29,8 @@ Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-
-Route::get('/artistes', function () {
-    return view('artists');
-})->name('artists');
+Route::get('/artistes', [FrontController::class, 'indexArtists'])->name('front.artists.index');
+Route::get('/artiste/{artist}', [FrontController::class, 'showArtist'])->name('front.artists.show');
 
 Route::get('/oeuvres', function () {
     return view('works');

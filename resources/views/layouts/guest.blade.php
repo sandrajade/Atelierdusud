@@ -43,11 +43,11 @@
             </div>
             <div class="hidden lg:flex lg:gap-x-12">
                 <a href="{{ route('welcome') }}" class="text-md font-lacquer tracking-widest leading-6 text-gray-900 border-b-2 hover:border-yellow-300 transition-all duration-300 {{ request()->routeIs('welcome') ? 'border-yellow-300' : 'border-transparent' }}">Accueil</a>
-                <a href="{{ route('artists') }}" class="text-md font-lacquer tracking-widest leading-6 text-gray-900 border-b-2 hover:border-yellow-300 transition-all duration-300 {{ request()->routeIs('artists') ? 'border-yellow-300' : 'border-transparent' }}">Artistes</a>
+                <a href="{{ route('front.artists.index') }}" class="text-md font-lacquer tracking-widest leading-6 text-gray-900 border-b-2 hover:border-yellow-300 transition-all duration-300 {{ request()->routeIs('front.artists.*') ? 'border-yellow-300' : 'border-transparent' }}">Artistes</a>
                 <a href="{{ route('works') }}" class="text-md font-lacquer tracking-widest leading-6 text-gray-900 border-b-2 hover:border-yellow-300 transition-all duration-300 {{ request()->routeIs('works') ? 'border-yellow-300' : 'border-transparent' }}">Oeuvres</a>
             </div>
             <div class="hidden lg:flex lg:flex-1 lg:justify-end">
-                <a href="{{ route('login') }}" class="text-sm font-semibold leading-6 text-white">Se connecter <span aria-hidden="true">&rarr;</span></a>
+                <a href="{{ route('login') }}" class="text-sm font-semibold leading-6 text-gray-600">Se connecter <span aria-hidden="true">&rarr;</span></a>
             </div>
         </nav>
         <!-- Mobile menu, show/hide based on menu open state. -->
@@ -88,6 +88,8 @@
         {{ $slot }}
     </div>
 
+    @include('contact')
+
     <footer class="bg-white">
         <div class="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
             <div class="flex justify-center space-x-6 md:order-2">
@@ -123,12 +125,10 @@
                 </a>
             </div>
             <div class="mt-8 md:order-1 md:mt-0">
-                <p class="text-center text-xs leading-5 text-gray-500">&copy; 2023 L'atelier du Sud. Tout droits
-                    réservés.</p>
+                <p class="text-center text-xs leading-5 text-gray-500">
+                    &copy; 2023 L'atelier du Sud. Tout droits réservés.
+                </p>
             </div>
-        </div>
-        <div class="container">
-            <a href="{{ route('contact') }}" class="text-blue-500 underline hover:text-blue-700">Nous contacter</a>
         </div>
     </footer>
 

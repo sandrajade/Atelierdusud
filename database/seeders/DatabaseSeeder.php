@@ -6,8 +6,8 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Work;
 use App\Models\Artist;
-use App\Models\Contact;
-use App\Models\Comment;
+use Illuminate\Database\Seeder;
+
 
 
 

@@ -5,6 +5,8 @@ namespace App\Http\Middleware;
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
 use Illuminate\Http\Request;
 
+
+//vérifie si l'utilisateur est authentifié. Si l'utilisateur n'est pas authentifié, il est redirigé vers la page de connexion
 class Authenticate extends Middleware
 {
     /**

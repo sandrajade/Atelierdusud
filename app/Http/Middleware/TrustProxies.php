@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Illuminate\Http\Middleware\TrustProxies as Middleware;
 use Illuminate\Http\Request;
-
+// gère les en-têtes de proxy dans les requêtes HTTP entrantes, ce qui est particulièrement utile lorsque votre application est derrière un proxy inverse
 class TrustProxies extends Middleware
 {
     /**

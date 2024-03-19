@@ -20,7 +20,7 @@ class ContactController extends Controller
      */
     public function show()
     {
-        return view('atelierdusud.contact');
+        return view('contact');
     }
     /**
      * Store a newly created contact resource in storage.
@@ -42,7 +42,7 @@ class ContactController extends Controller
                 'name.required' => 'Le champ nom est obligatoire.',
                 'name.max' => 'Le champ nom ne peut pas dépasser 255 caractères.',
                 'email.required' => 'Le champ email est obligatoire.',
-                'email.email' => 'Le champ email doit être une adresse email valide.',
+                'email.email' => 'Le champ email doit avoir une adresse email valide.',
                 'message.required' => 'Le champ message est obligatoire.',
             ]
         );

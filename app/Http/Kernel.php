@@ -3,7 +3,7 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
-
+//ce code définit les middlewares globaux, les groupes de middlewares et les alias de middlewares pour l'application Laravel. Les middlewares sont utilisés pour effectuer des tâches spécifiques avant ou après que la requête ait été traitée par le gestionnaire de route
 class Kernel extends HttpKernel
 {
     /**

@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Http\Middleware\TrustHosts as Middleware;
-
+//crypte et déchiffre les cookies pour sécuriser les informations sensibles stockées dans les cookies
 class TrustHosts extends Middleware
 {
     /**

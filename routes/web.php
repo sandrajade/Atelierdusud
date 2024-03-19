@@ -7,7 +7,6 @@ use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\CategoryController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,20 +24,24 @@ use App\Http\Controllers\CategoryController;
  * ---------------------------
  *
  */
+
 Route::get('/', function () {
     return view('welcome');
 })->name('welcome');
 
 Route::get('/artistes', [FrontController::class, 'indexArtists'])->name('front.artists.index');
 Route::get('/artiste/{artist}', [FrontController::class, 'showArtist'])->name('front.artists.show');
+Route::get('/oeuvres', [FrontController::class, 'indexWorks'])->name('front.works.index');
+Route::get('/oeuvre/{work}', [FrontController::class, 'showWork'])->name('front.works.show');
+
 
 Route::get('/oeuvres', function () {
     return view('works');
 })->name('works');
 
+
 Route::get('/contact', [ContactController::class, 'show'])->name('contact');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
-
 
 /**
  * ---------------------------
@@ -50,10 +53,14 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
-])->group(function () {
+])
+
+
+->group(function () {
     Route::get('/atelierdusud.accueil', function () {
         return view('atelierdusud.accueil');
     })->name('atelierdusud.accueil');
+    
     // Route::resource('artists', ArtistController::class);
     Route::get('artists', [ArtistController::class, 'index'])->name('artists.index');
     Route::get('artists/create', [ArtistController::class, 'create'])->name('artists.create');
@@ -82,4 +89,5 @@ Route::middleware([
     Route::get('works/{work}/edit', [WorkController::class, 'edit'])->name('works.edit');
     Route::put('/works/{work}', [WorkController::class, 'update'])->name('works.update');
     Route::delete('works/{work}', [WorkController::class, 'destroy'])->name('works.destroy');
+     
 });

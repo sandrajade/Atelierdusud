@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
+
+//ui redirige les utilisateurs déjà authentifiés vers une autre page. C'est utile pour empêcher les utilisateurs de voir des pages comme la page de connexion ou l'inscription alors qu'ils sont déjà connectés à l'application
 class RedirectIfAuthenticated
 {
     /**

@@ -6,7 +6,10 @@ namespace Database\Seeders;
 use App\Models\User;
 use App\Models\Work;
 use App\Models\Artist;
-use Illuminate\Database\Seeder;
+use App\Models\Contact;
+use App\Models\Comment;
+
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -27,5 +30,8 @@ class DatabaseSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@test.fr',
         ]);
+
+        
+
     }
 }

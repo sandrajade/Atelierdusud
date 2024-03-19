@@ -28,5 +28,16 @@ class Work extends Model
         return $this->belongsToMany(Artist::class);
     }
 
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    public function validComments()
+    {
+        return $this->comments()->whereHas('user', function ($query) {
+            $query->whereValid(true);
+        });
+    }
 
 }

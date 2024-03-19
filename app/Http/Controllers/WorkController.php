@@ -20,11 +20,11 @@ class WorkController extends Controller
      */
     public function index()
     {
-        // La méthode all récupère toute les données de ma table Work de la base de donnée
-        $works = Work::all();
+         // la methode orderby récupère et trie les données des oeuvres de la base de données par la date de création et dans l'ordre décroissant  et les stocke dans une variable $works
+        $works = Work::orderBy('created_at' , 'desc')->get();
 
         // Renvoie la vue avec toute les données de ma table Work
-        return view('atelierdusud.works.index', compact('works'));
+        return view('atelierdusud.works.index', ['works' => $works]);
     }
 
 

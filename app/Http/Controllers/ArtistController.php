@@ -18,8 +18,8 @@ class ArtistController extends Controller
      */
     public function index()
     {
-        // la methode all récupère toute les données de la table Artist de la base de données et les stocke dans une variable $artists
-        $artists = Artist::all();
+        // la methode orderby récupère et trie les données des artistes de la base de données par la date de création et dans l'ordre décroissant  et les stocke dans une variable $artists
+        $artists = Artist::orderby('created_at', 'desc')->get();
         // SELECT * FROM artists;
 
         return view('atelierdusud.artists.index', ['artists' => $artists]);
@@ -118,12 +118,12 @@ class ArtistController extends Controller
             'url' => 'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        // Mette à jour les propriétés de l'artiste avec les données soumises, les règles
+        // Met à jour les propriétés de l'artiste avec les données soumises, les règles
         $artist->name = $validated['name'];
         $artist->description = $validated['description'];
         $artist->status = $validated['status'];
 
-        // Si l'utilisateur a fourni une URL, mettez à jour la propriété URL de l'artiste
+        // Si l'utilisateur a fourni une URL, met à jour la propriété URL de l'artiste
         if ($request->hasFile('url')) {
             $imageName = time() . '.' . $request->url->extension();
             $request->url->move(public_path('artists_img'), $imageName);

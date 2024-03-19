@@ -27,8 +27,23 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'valid',
     ];
-
+    
+    public function comments()
+    {
+    return $this->hasMany(Comment::class);
+    }
+    public function artist()
+    {
+    return $this->belongsTo(Artist::class);
+    }
+    
+    public function work()
+    {
+    return $this->belongsTo(Work::class);
+    }
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -59,3 +74,5 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 }
+
+    

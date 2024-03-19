@@ -4,6 +4,8 @@ namespace App\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\PreventRequestsDuringMaintenance as Middleware;
 
+
+//empêcher les requêtes lorsqu'une application Laravel est en mode maintenance
 class PreventRequestsDuringMaintenance extends Middleware
 {
     /**

@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->tinyInteger('status')->default(0);
-            $table->string('url')->default('https://source.unsplash.com/random/200x500/?art')->nullable();
+            $table->string('url')->nullable();
             $table->timestamps();
         });
     }
